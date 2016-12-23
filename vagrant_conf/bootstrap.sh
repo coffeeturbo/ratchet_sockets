@@ -12,6 +12,7 @@ sudo /etc/init.d/php-fpm restart
 ## NGINX
 sudo cp /vagrant/vagrant_conf/env/etc/nginx/vhosts/* /etc/nginx/vhosts/
 sudo rc-update add nginx default
+sudo emerge nginx
 sudo /etc/init.d/nginx restart
 
 

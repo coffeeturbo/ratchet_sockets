@@ -9,23 +9,26 @@
             console.log("Connection established!");
         };
 
-        conn.onmessage = function(e) {
-            console.log(e.data);
-            console.log(e);
-            var messages = document.getElementById('messages');
 
+        conn.onmessage = function(e) {
+          var messages = document.getElementById('messages');
             messages.append(e.data);
         };
 
         function sendMessage(){
-            conn.send("helloworld<br>");
+          messages = document.getElementById('messages');
+          var text_message = document.getElementById('chat_message').value;
+          conn.send(text_message);
+          messages.append("<br>"+text_message);
         }
     </script>
 </head>
 <body>
-<h1><?php echo "index.html"; ?></h1>
+<h1><?php echo "index.php"; ?></h1>
 
 <div id="messages"></div>
+
+<textarea name="chat_message" id="chat_message" cols="30" rows="10"></textarea>
 
 <button onclick="sendMessage()">send</button>
 </body>
