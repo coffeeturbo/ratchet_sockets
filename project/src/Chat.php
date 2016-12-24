@@ -5,6 +5,7 @@ namespace ChatApp;
 
 use Ratchet\ConnectionInterface;
 use Ratchet\MessageComponentInterface;
+use Ratchet\WebSocket\Version\RFC6455\Connection;
 
 class Chat implements MessageComponentInterface
 {
@@ -17,7 +18,11 @@ class Chat implements MessageComponentInterface
 
     function onOpen(ConnectionInterface $conn){
         $this->clients->attach($conn);
-        echo "<<new connection ({})>>";
+
+        if ($conn instanceof Connection){
+
+        }
+        echo "<<new connection ({$conn->resourceId})>>";
     }
 
     function onMessage(ConnectionInterface $from, $msg){

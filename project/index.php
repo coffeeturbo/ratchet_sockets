@@ -29,7 +29,7 @@
 <div id="messages"></div>
 
 <textarea name="chat_message" id="chat_message" cols="30" rows="10"></textarea>
-
+<br>
 <button onclick="sendMessage()">send</button>
 </body>
 </html>
